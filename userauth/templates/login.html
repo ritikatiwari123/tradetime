@@ -1,0 +1,101 @@
+{% load static %}
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>LogIn TradeTime</title>
+	<!--favicon-->
+	<link rel="icon" href="{% static 'images/favicon-32x32.png' %}" type="image/png" />
+	<!-- loader-->
+	<link href="{% static 'css/pace.min.css' %}" rel="stylesheet" />
+	<script src="{% static 'js/pace.min.js' %}"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet"
+		  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto&amp;display=swap" />
+	<!-- Icons CSS -->
+	<link rel="stylesheet"
+		  href="{% static 'css/icons.css' %}" />
+	<!-- App CSS -->
+	<link rel="stylesheet"
+		  href="{% static 'css/app.css' %}" />
+</head>
+
+<body class="bg-login">
+	<!-- wrapper -->
+	<div class="wrapper">
+		<div class="section-authentication-login d-flex align-items-center justify-content-center mt-4">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<div class="card radius-15 overflow-hidden">
+						<div class="row g-0">
+							<div class="col-xl-6">
+								<div class="card-body p-5">
+									<div class="text-center">
+										<img src="{% static 'images/logo-icon.png' %}" width="80" alt="">
+										<h3 class="mt-4 font-weight-bold">Welcome Shekhar Tyagi</h3>
+									</div>
+									<div class="">
+										<div class="form-body">
+											<form class="row g-3" method="POST" action="{% url 'user:auth' %}">
+												{% csrf_token %}
+												<div class="col-12">
+													<label for="inputChoosePassword"
+														   class="form-label">Enter Authentication Code</label>
+													<div class="input-group" >
+														<input type="text" class="form-control border-end-0" name="otp"
+															   id="inputChoosePassword" value=""
+															   placeholder="Enter Code Here">
+														<a href="javascript:;" class="input-group-text bg-transparent">
+															<i class="bx bx-hide"></i></a>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="d-grid">
+														<button type="submit" class="btn btn-primary">
+															<i class="bx bxs-lock-open"></i>Sign in</button>
+													</div>
+												</div>
+												</form>
+										</div>
+									</div>
+								</div>
+							 </div>
+							<div class="col-xl-6 bg-login-color d-flex align-items-center justify-content-center">
+								<img src="{% static 'images/login-images/login-frent-img.png' %}"
+									 class="img-fluid" alt="...">
+							</div>
+						</div>
+						<!--end row-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end wrapper -->
+</body>
+
+<!--plugins-->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--Password show & hide js -->
+<script>
+	$(document).ready(function () {
+		$("#show_hide_password a").on('click', function (event) {
+			event.preventDefault();
+			if ($('#show_hide_password input').attr("type") == "text") {
+				$('#show_hide_password input').attr('type', 'password');
+				$('#show_hide_password i').addClass("bx-hide");
+				$('#show_hide_password i').removeClass("bx-show");
+			} else if ($('#show_hide_password input').attr("type") == "password") {
+				$('#show_hide_password input').attr('type', 'text');
+				$('#show_hide_password i').removeClass("bx-hide");
+				$('#show_hide_password i').addClass("bx-show");
+			}
+		});
+	});
+</script>
+
+
+<!-- Mirrored from codervent.com/syndash/demo/vertical/authentication-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 10:55:06 GMT -->
+</html>
